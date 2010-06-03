@@ -87,11 +87,11 @@ public class Test extends Activity {
 				// A Simple JSON Response Read
 				InputStream instream = entity.getContent();
 				String result = convertStreamToString(instream);
-				Log.i("Praeda", result);
+				Log.e("Praeda", result);
 
 				// A Simple JSONObject Creation
 				JSONObject json = new JSONObject(result);
-				Log.i("Praeda", "<jsonobject>\n" + json.toString()
+				Log.e("Praeda", "<jsonobject>\n" + json.toString()
 						+ "\n</jsonobject>");
 
 				// A Simple JSONObject Parsing
