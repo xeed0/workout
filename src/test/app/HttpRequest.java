@@ -54,7 +54,7 @@ public class HttpRequest {
 				httpPost.abort();
 			}
 		} catch (Exception e) {
-			System.out.println("Your App Name Here" + e);
+			System.out.println("HttpRequest" + e);
 		}
 	}
 
@@ -77,7 +77,7 @@ public class HttpRequest {
 
 		StringEntity tmp = null;
 
-		Log.d("Your App Name Here", "Setting httpPost headers");
+		Log.d("HttpRequest", "Setting httpPost headers");
 
 		httpPost.setHeader("User-Agent", "SET YOUR USER AGENT STRING HERE");
 		httpPost
@@ -95,13 +95,13 @@ public class HttpRequest {
 		try {
 			tmp = new StringEntity(data, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			Log.e("Your App Name Here",
+			Log.e("HttpRequest",
 					"HttpUtils : UnsupportedEncodingException : " + e);
 		}
 
 		httpPost.setEntity(tmp);
 
-		Log.d("Your App Name Here", url + "?" + data);
+		Log.d("HttpRequest", url + "?" + data);
 
 		try {
 			response = httpClient.execute(httpPost, localContext);
@@ -110,10 +110,10 @@ public class HttpRequest {
 				ret = EntityUtils.toString(response.getEntity());
 			}
 		} catch (Exception e) {
-			Log.e("Your App Name Here", "HttpUtils: " + e);
+			Log.e("HttpRequest", "HttpUtils: " + e);
 		}
 
-		Log.d("Your App Name Here", "Returning value:" + ret);
+		Log.d("HttpRequest", "Returning value:" + ret);
 
 		return ret;
 	}
@@ -124,7 +124,7 @@ public class HttpRequest {
 		try {
 			response = httpClient.execute(httpGet);
 		} catch (Exception e) {
-			Log.e("Your App Name Here", e.getMessage());
+			Log.e("HttpRequest", e.getMessage());
 		}
 
 		// int status = response.getStatusLine().getStatusCode();
@@ -133,7 +133,7 @@ public class HttpRequest {
 		try {
 			ret = EntityUtils.toString(response.getEntity());
 		} catch (IOException e) {
-			Log.e("Your App Name Here", e.getMessage());
+			Log.e("HttpRequest", e.getMessage());
 		}
 
 		return ret;
