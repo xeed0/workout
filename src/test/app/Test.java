@@ -8,21 +8,22 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 public class Test extends Activity {
 
 	private TextView v;
-	private static final String TAG = "Test";
 	private static final String URL = "http://www.xeed.me/json/index.php?data=true";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
 		v = (TextView) findViewById(R.id.title);
 		v.setText("Doing...");
 		
@@ -32,12 +33,12 @@ public class Test extends Activity {
 		List<String> myList = new ArrayList<String>();
 		JSONObject jo = null;
 		try {	
-		myList.add("And");
-		myList.add("Your");
-		
-		JSONArray ja = new JSONArray(myList.toString());
-		
-		jo = new JSONObject(jsonMap);
+			myList.add("And");
+			myList.add("Your");
+			
+			JSONArray ja = new JSONArray(myList.toString());
+			
+			jo = new JSONObject(jsonMap);
 
 			jo.put("data", ja);
 		} catch (JSONException e) {

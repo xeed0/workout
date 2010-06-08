@@ -79,24 +79,19 @@ public class HttpRequest {
 
 		Log.d("HttpRequest", "Setting httpPost headers");
 
-		httpPost.setHeader("User-Agent", "SET YOUR USER AGENT STRING HERE");
-		httpPost
-				.setHeader(
-						"Accept",
-						"text/html,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5");
+		httpPost.setHeader("User-Agent", "workout-app");
+		httpPost.setHeader("Accept","text/html,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5");
 
 		if (contentType != null) {
 			httpPost.setHeader("Content-Type", contentType);
 		} else {
-			httpPost.setHeader("Content-Type",
-					"application/x-www-form-urlencoded");
+			httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
 		}
 
 		try {
 			tmp = new StringEntity(data, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			Log.e("HttpRequest",
-					"HttpUtils : UnsupportedEncodingException : " + e);
+			Log.e("HttpRequest"," HttpUtils : UnsupportedEncodingException : " + e);
 		}
 
 		httpPost.setEntity(tmp);
